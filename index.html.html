@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Recommendation</title>
+    
+    <style>
+        body {
+          background: url('https://fastly.picsum.photos/id/74/4288/2848.jpg?hmac=q02MzzHG23nkhJYRXR-_RgKTr6fpfwRgcXgE0EKvNB8') no-repeat center center;
+          background-attachment: fixed;
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
+          height: 100vh;
+          font-family: 'Segoe UI', sans-serif;
+          margin: 0;
+          padding: 0;
+          color: #333;
+        }
+      
+        nav {
+          background-color: #0077cc;
+          padding: 15px;
+          top: 0;
+          width: 100%;
+          z-index: 1000;
+        }
+      
+        nav ul {
+          list-style: none;
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          margin: 0;
+          padding: 0;
+        }
+      
+        nav a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          transition: color 0.3s ease;
+        }
+      
+        nav a:hover {
+          color: #ffdd57;
+        }
+      
+        nav input[type="text"] {
+          padding: 8px;
+          border-radius: 4px;
+          border: none;
+          margin-right: 5px;
+        }
+      
+        nav button {
+          padding: 8px 12px;
+          border: none;
+          border-radius: 4px;
+          background-color: #ffffff;
+          color: #0077cc;
+          font-weight: bold;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+      
+        nav button:hover {
+          background-color: #ffdd57;
+          color: #333;
+        }
+      
+        .overlay {           
+          
+          background-size: cover;
+          padding: 100px 20px;
+          color: white;
+          text-align: center;
+          text-shadow: white;
+        }
+      
+        .overlay h1 {
+          font-size: 3em;
+          margin-bottom: 20px;
+        }
+      
+        .overlay p {
+          font-size: 1.5em;
+          font-weight: bold;
+          max-width: 800px;
+          margin: 0 auto;
+          color: black;
+        }
+
+        .about-us {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+            font-weight: bold;
+        }
+      
+        div {
+          padding: 40px 20px;
+          max-width: 900px;
+          margin: auto;
+        }
+      
+        h1, h2 {
+          color: #0077cc;
+        }
+      
+        ul {
+          padding-left: 20px;
+        }
+      
+        .team-role {
+          font-style: italic;
+          color: #555;
+        }
+      
+        .contact-form {
+          background-color: #fff;
+          padding: 30px;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          margin-top: 40px;
+        }
+      
+        .contact-form label {
+          display: block;
+          margin-top: 15px;
+          font-weight: bold;
+        }
+      
+        .contact-form input,
+        .contact-form textarea {
+          width: 100%;
+          padding: 10px;
+          margin-top: 5px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 1em;
+        }
+      
+        .contact-form button {
+          margin-top: 20px;
+          padding: 10px 20px;
+          background-color: #0077cc;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          font-size: 1em;
+          cursor: pointer;
+        }
+      
+        .contact-form button:hover {
+          background-color: #005fa3;
+        }
+      </style>
+</head>
+<body>
+    <nav>
+    <ul style="list-style: none; display: flex; gap: 20px;">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+            <input type="text" placeholder="Search recommendations" id="searchInput">
+            <button onclick="search()">Search</button>
+            <button onclick="resetSearch()">Reset</button>
+        </li>
+    </ul>
+</nav>
+
+
+<div class="overlay">
+    <h1 id="home">Welcome to NovaTech Solutions</h1>
+
+    <p>Empowering businesses through innovative technology. Explore our services, meet our team, and discover how we’re shaping the future of digital transformation.</p>
+  </div>
+
+
+<div class="about-us">
+    <h1 id="about">About Us</h1>
+
+  <p><strong>Welcome to NovaTech Solutions</strong></p>
+
+  <p>At NovaTech Solutions, we believe in the power of innovation to transform businesses and empower communities. Founded in 2015, our company has.</p>
+
+  <p>Our mission is simple: to deliver smart, scalable, and secure digital solutions that help our clients thrive in a rapidly evolving tech landscape. With a commitment to excellence and a passion for problem-solving, we’ve partnered with organizations across industries to drive meaningful change through technology.</p>
+
+  <h2>Our Values</h2>
+  <ul>
+    <li><strong>Innovation</strong>: We embrace creativity and forward-thinking in everything we do.</li>
+    <li><strong>Integrity</strong>: We operate with transparency, honesty, and respect.</li>
+    <li><strong>Collaboration</strong>: We believe in the power of teamwork and shared success.</li>
+    <li><strong>Customer-Centricity</strong>: Our clients are at the heart of every decision we make.</li>
+  </ul>
+
+  <hr>
+
+  <h2>Meet the Team</h2>
+  <ul>
+    <li><strong>Alex Morgan</strong> – <span class="team-role">Chief Executive Officer</span><br>
+      Visionary leader with over 20 years in tech innovation and strategic growth.</li>
+
+    <li><strong>Jordan Lee</strong> – <span class="team-role">Chief Technology Officer</span><br>
+      Expert in cloud architecture and AI systems, driving our technical excellence.</li>
+
+    <li><strong>Taylor Kim</strong> – <span class="team-role">Head of Product Development</span><br>
+      Creative force behind our product strategy and user experience design.</li>
+
+    <li><strong>Riley Chen</strong> – <span class="team-role">Lead Software Engineer</span><br>
+      Full-stack developer with a knack for building scalable, secure applications.</li>
+
+    <li><strong>Morgan Patel</strong> – <span class="team-role">Director of Client Success</span><br>
+      Ensures our clients receive top-tier support and solutions tailored to their needs.</li>
+
+    <li><strong>Jamie Rivera</strong> – <span class="team-role">Cybersecurity Specialist</span><br>
+      Protects our systems and clients with cutting-edge security protocols.</li>
+  </ul>
+</div>
+
+
+<div class="contact-form">
+    <form>
+      <h2 id="contact">Contact Us</h2>
+    
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div id="timeDisplay"></div>
+
+  <script>
+  function search() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const normalizedQuery = normalizeKeyword(query);
+  
+    const resultsContainer = document.getElementById('recommendationResults');
+    if (!resultsContainer || !window.recommendationData) return;
+  
+    resultsContainer.innerHTML = ''; // Clear previous results
+  
+    const filtered = window.recommendationData.filter(place => {
+      const name = place.name.toLowerCase();
+      const description = place.description.toLowerCase();
+      return name.includes(normalizedQuery) || description.includes(normalizedQuery);
+    });
+  
+    if (filtered.length === 0) {
+      resultsContainer.innerHTML = `<p>No results found for "${query}".</p>`;
+      return;
+    }
+  
+    filtered.forEach(place => {
+      const card = document.createElement('div');
+      card.className = 'recommendation-card';
+      card.innerHTML = `
+        <h3>${place.name}</h3>
+        ${place.imageUrl}
+        <p>${place.description}</p>
+      `;
+      resultsContainer.appendChild(card);
+    });
+  }
+  
+  function resetSearch() {
+    document.getElementById('searchInput').value = '';
+    const resultsContainer = document.getElementById('recommendationResults');
+    if (resultsContainer) {
+      resultsContainer.innerHTML = '';
+    }
+  }
+  </script>
+  
+  <script src="script.js"></script>
+
+</body>
+</html>
